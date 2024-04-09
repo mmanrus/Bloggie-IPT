@@ -13,3 +13,6 @@ class HomeView(ListView):
 class ArticleDetail(DetailView):
     model = Post
     template_name = 'blog/article_details.html'
+    
+#class AddPost():
+#    model
