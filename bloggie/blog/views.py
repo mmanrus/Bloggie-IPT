@@ -1,9 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views.generic import ListView, DetailView
+from .models import Post
 # Create your views here.
 
-def home(request):
-    return HttpResponse('<h1>Hello world</h1>')
+#def about(request):
+#    return render(request, 'blog/about.html', {'title': 'About Page'})
 
-def about(request):
-    return HttpResponse('<h1>About<h2>')
+class HomeView(ListView):
+    model = Post
+    template_name = 'blog/home.html'
+    
+class ArticleDetail(DetailView):
+    model = Post
+    template_name = 'blog/article_details.html'
