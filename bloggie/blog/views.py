@@ -28,4 +28,4 @@ class UpdatePostView(UpdateView):
     template_name = 'blog/update_post.html'
     fields = ['title', 'title_tag', 'body']
     
-# TODO delete
+# TODO DELETE POST VIEW
