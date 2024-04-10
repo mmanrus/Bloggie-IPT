@@ -9,4 +9,6 @@ urlpatterns = [
     #path('about/', views.about, name='about')
     path('', HomeView.as_view(), name='home'),
     path('article/<int:pk>', ArticleDetail.as_view(), name='article-detail'),
+    path('addpost/', AddPost.as_view(), name='add-post'),
+    
 ]
