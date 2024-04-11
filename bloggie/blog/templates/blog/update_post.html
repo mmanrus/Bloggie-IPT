@@ -12,6 +12,8 @@
         {% csrf_token %}
         {{ form.as_p }}
         <button class="btn btn-bg-secondary">Update</button>
+        
 </div>
+<a class="btn btn-bg-secondary" href = "{% url 'delete-post' post.pk %}">Delete</a>
 <a class="btn btn-dark mt-3" href = {% url 'home' %}>Back</a>
 {% endblock %}
