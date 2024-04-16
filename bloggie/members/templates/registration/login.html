@@ -1,17 +1,35 @@
-{% extends 'blog/base.html'%}
+{% extends 'blog/base.html' %}
 
 {% block title %}
    Login
 {% endblock %}
 
-{% block content%}
+{% block content %}
 
 <h1>Login</h1>
 <div class="form-group">
     <form method="POST" class="mt-5">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-bg-secondary">Login</button>
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="inputPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password">
+        </div>
+        <button type="submit" class="btn btn-bg-secondary">Login</button>
+    </form>
 </div>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  {% if messages %}
+    {% for messages in messages%}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>{{ messages }}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor%}
+  {% endif %}
+
 
 {% endblock %}

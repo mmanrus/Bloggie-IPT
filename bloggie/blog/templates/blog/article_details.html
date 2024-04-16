@@ -8,7 +8,7 @@
 <h1>{{ post.title }}</h1>
 <p><small>By: {{ post.author.first_name}} {{ post.author.last_name}}</small> {{ post.date_posted }}<p>
 <hr>
-<p>{{ post.body }}</p>
+<p>{{ post.body|safe }}</p>
 
 <hr>
 <a class="btn btn-dark" href = {% url 'home' %}>Back</a>

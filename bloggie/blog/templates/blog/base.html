@@ -24,15 +24,21 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}">Blogie</a>
             <ul class="navbar-nav">
-                <li>
-                    <a href="{% url 'add-post'%}" class="nav-link">Add Post</a>
-                </li>
-                <li>
-                    <a href="{% url 'register'%}" class="nav-link">Register</a>
-                </li>
-                <li>
-                    <a href="{% url 'login'%}" class="nav-link">Login</a>
-                </li>     
+                {% if user.is_authenticated%}
+                    <li>
+                        <a href="{% url 'add-post'%}" class="nav-link">Add Post</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'logout'%}" class="nav-link">Logout</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{% url 'register'%}" class="nav-link">Register</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'login'%}" class="nav-link">Login</a>
+                    </li>
+                {% endif %}    
             </ul>
         </div>
         
