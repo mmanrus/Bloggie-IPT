@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+{% if category_posts %}
+    <h1>{{ category }} Category</h1>
+    {% for post in category_posts %}
+            <a href="{% url 'article-detail' post.pk %}"><h1>{{ post.title }}</h1></a>
+            <p>By {{ post.author }}</p>
+            <p>{{ post.date_posted }}</p>
+            <p>{{ post.body|slice:":200"|safe }}</p>
+            <hr>
+    {% endfor %}
+{% else %}
+    <h2>Sorry Category Not Found</h2>
+{% endif %}
+{% endblock %}
