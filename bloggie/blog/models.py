@@ -27,5 +27,5 @@ class Post(models.Model):
         return self.title + ' by ' + str(self.author) + ' Date Published: ' + str(self.date_posted)
     
     def get_absolute_url(self):
-        return reverse("article-detail", args=(str(self.id)))
+        return reverse("article-detail", args=(str(self.id),))
         #return reverse('home')

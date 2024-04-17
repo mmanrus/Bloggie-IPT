@@ -2,7 +2,7 @@
 
 {% block content %}
 {% if category_posts %}
-    <h1>{{ category }} Category</h1>
+    <h1>{{ category }}</h1>
     {% for post in category_posts %}
             <a href="{% url 'article-detail' post.pk %}"><h1>{{ post.title }}</h1></a>
             <p>By {{ post.author }}</p>

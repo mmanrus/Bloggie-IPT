@@ -4,7 +4,7 @@
 <h1>Post</h1>
     {% for post in object_list %}
         <a href="{% url 'article-detail' post.pk %}"><h1>{{ post.title }}</h1></a>
-        <a href="{% url 'category' post.category %}"><h3>{{ post.category }}</h3></a>
+        <a href="{% url 'category' post.category|slugify  %}"><h3>{{ post.category|title }}</h3></a>
         <p>By {{ post.author }}</p>
         <p>{{ post.date_posted }}</p>
         <p>{{ post.body|slice:":200"|safe }}</p>

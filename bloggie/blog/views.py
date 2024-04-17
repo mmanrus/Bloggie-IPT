@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Category, Post
 from .forms import PostForm, EditForm
 from django.urls import reverse_lazy
+
 # Create your views here.
 
 #def about(request):
@@ -13,6 +14,11 @@ class HomeView(ListView):
     template_name = 'blog/home.html'
     ordering = ['-date_posted']
     
+    def get_context_data(self, *args, **kwargs):
+        cat_menu = Category.objects.all()
+        context = super(HomeView, self).get_context_data(*args, **kwargs)
+        context["cat_menu"] = cat_menu
+        return context
 class ArticleDetail(DetailView):
     model = Post
     template_name = 'blog/article_details.html'
@@ -31,8 +37,12 @@ class AddCategory(CreateView):
     fields = '__all__'
     
 def CategoryView(request, categories):
-    category_posts = Post.objects.filter(category = categories)
-    return render(request, 'blog/categories.html', {'category': categories.title(), 'category_posts': category_posts})
+    category_posts = Post.objects.filter(category=categories.replace('-', ' '))
+    return render(request, 'blog/categories.html', {'category': categories.title().replace('-', ' '), 'category_posts': category_posts})
+
+def CategoryListView(request):
+    cat_menu_list = Category.objects.all()
+    return render(request, 'blog/category_list.html', {'category_menu_list': cat_menu_list })
 
 class UpdatePostView(UpdateView):
     model = Post
