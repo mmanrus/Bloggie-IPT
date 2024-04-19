@@ -19,7 +19,7 @@ class PostForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control border border-dark-subtle'}),
             'title_tag': forms.TextInput(attrs={'class': 'form-control border border-dark-subtle'}),
-            'author': forms.Select(attrs={'class': 'form-control border border-dark-subtle'}),
+            'author': forms.TextInput(attrs={'class': 'form-control border border-dark-subtle', 'value': '', 'id': 'post_owner', 'type': 'hidden'}),
             'category': forms.Select(choices=choice_list ,attrs={'class': 'form-control border border-dark-subtle'}),
             'body': forms.Textarea(attrs={'class': 'form-control border border-dark-subtle'}),
         }

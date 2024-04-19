@@ -9,9 +9,22 @@
 <h1>Add Blog Post</h1>
 <div class="form-group">
     <form method="POST" class="mt-5">
+        <p>By: 
+            <strong>
+                {% if user.first_name or user.last_name %}
+                    {{ user.first_name }} {{ user.last_name}}
+                {% else %}
+                    {{ user.username }}
+                {% endif%}
+            </strong>
+        </p>
         {% csrf_token %}
         {{ form.as_p }}
         <button class="btn btn-bg-secondary">Post</button>
 </div>
 <a class="btn btn-dark mt-3" href = {% url 'home' %}>Back</a>
+<script>
+    var name = "{{ user.id}}";
+    document.getElementById("post_owner").value = name
+</script>
 {% endblock %}

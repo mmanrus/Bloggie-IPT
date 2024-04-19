@@ -7,6 +7,8 @@
 {% block content%}
 
 <h1>Edit Blog Post</h1>
+
+{% if user.is_authenticated and user.id == post.author.id %}
 <div class="form-group">
     <form method="POST" class="mt-5">
         {% csrf_token %}
@@ -14,6 +16,9 @@
         <button class="btn btn-light">Update</button>
         <a class="btn btn-danger" href = "{% url 'delete-post' post.pk %}">Delete</a>
 </div>
+{% else %}
+    <h1>You are not allowed to Edit this post because you are not owner of the post</h1>
+{% endif %}
 
 <a class="btn btn-dark mt-3" href = {% url 'home' %}>Back</a>
 {% endblock %}

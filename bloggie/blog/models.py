@@ -22,7 +22,7 @@ class Post(models.Model):
     date_posted = models.DateField(auto_now_add=True)
     body = models.TextField()
     category = models.CharField(max_length=255, default='default category')
-    
+    likes = models.ManyToManyField(User, related_name='blog_post')
     def __str__(self):
         return self.title + ' by ' + str(self.author) + ' Date Published: ' + str(self.date_posted)
     
