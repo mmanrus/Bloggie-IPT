@@ -7,7 +7,16 @@
         <a href="{% url 'category' post.category|slugify  %}"><h3>{{ post.category|title }}</h3></a>
         <p>By {{ post.author }}</p>
         <p>{{ post.date_posted }}</p>
+        <a href="{% url 'article-detail' post.pk %}">{{ post.snippet }}</a>
         <p>{{ post.body|slice:":200"|safe }}</p>
+        <p>
+            {% if total_likes == None %}
+            0 - Likes
+            {% else %}
+            {{ total_likes }} - Likes
+            {% endif %}
+        </p>
+
         <hr>
     {% endfor %}
 {% endblock %}

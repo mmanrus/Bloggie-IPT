@@ -14,7 +14,7 @@ print(choice_list)
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'title_tag', 'author', 'category', 'body')
+        fields = ('title', 'title_tag', 'author', 'category', 'body', 'snippet')
         
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control border border-dark-subtle'}),
@@ -22,6 +22,7 @@ class PostForm(forms.ModelForm):
             'author': forms.TextInput(attrs={'class': 'form-control border border-dark-subtle', 'value': '', 'id': 'post_owner', 'type': 'hidden'}),
             'category': forms.Select(choices=choice_list ,attrs={'class': 'form-control border border-dark-subtle'}),
             'body': forms.Textarea(attrs={'class': 'form-control border border-dark-subtle'}),
+            'snippet': forms.TextInput(attrs={'class': 'form-control border border-dark-subtle'}),
         }
         
 class EditForm(forms.ModelForm):

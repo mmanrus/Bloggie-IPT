@@ -12,6 +12,7 @@
 <div class="form-group">
     <form method="POST" class="mt-5">
         {% csrf_token %}
+        {{ form.media }}
         {{ form.as_p }}
         <button class="btn btn-light">Update</button>
         <a class="btn btn-danger" href = "{% url 'delete-post' post.pk %}">Delete</a>
