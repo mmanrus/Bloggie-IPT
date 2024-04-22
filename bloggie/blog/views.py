@@ -77,11 +77,15 @@ def CategoryView(request, categories):
     category_posts = Post.objects.filter(category=categories.replace('-', ' '))
     
     return render(request, 'blog/categories.html', {'category': categories.title().replace('-', ' '), 'category_posts': category_posts})
-
+"""
 def CategoryListView(request):
     cat_menu_list = Category.objects.all()
-    
     return render(request, 'blog/category_list.html', {'category_menu_list': cat_menu_list })
+"""
+
+def CategoryListView(request):
+    category_menu_list = Category.objects.all()
+    return render(request, 'blog/category_list.html', {'category_menu_list': category_menu_list})
 
 def LikeView(request, pk):
     post = get_object_or_404(Post, id = request.POST.get('post_id'))

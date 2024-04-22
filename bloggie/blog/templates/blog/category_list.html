@@ -1,16 +1,8 @@
 {% extends "blog/base.html" %}
 
-{% block title %}
-    Blog Category
-{% endblock %}
 
-{% block content%}
-    <h1>Blog Category</h1>
-
-    {% for item in cat_menu_list %}
-            <h3>
-                <a href="{% url 'category' item|slugify  %}">{{ item }}</a>
-            </h3>
+{% block content %}
+    {% for item in category_menu_list %}
+        <h2><a class="nav-item nav-link link-body-emphasis active" href="{% url 'category' item|slugify|title  %}">{{ item }}</a><h2>
     {% endfor %}
- 
 {% endblock %}

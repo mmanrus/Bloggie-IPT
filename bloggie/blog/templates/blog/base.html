@@ -12,71 +12,62 @@
     </title>
     <!--Local Css-->
     <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/nav.css' %}">
     <link rel="stylesheet" href="{% static 'blog/bootstrap.min.css' %}">
     
     <!-- Bootstrap CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
 </head>
 <body>
+    
     <!--Put children block here!! Soon-->
-    <nav class="navbar navbar-expand-lg bg-dark-subtle">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}">Blogie</a>
-            
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                {% if cat_menu %}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            {% for item in cat_menu %}
-                            <li>
-                                <a class="dropdown-item" href="{% url 'category' item|slugify  %}">{{ item }}</a>
-                            </li>
-                            {% endfor %}
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-
-                        </ul>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a href="{% url 'category-list'%}" class="nav-link">Categories</a>
-                    </li>
-                {% endif %}
+    <div class="container">
+        <header class="border-bottom lh-1 py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-4 pt-1">
                 {% if user.is_authenticated%}
-                    <li class="nav-item">
-                        <a href="{% url 'add-post'%}" class="nav-link">Add Post</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'add-category'%}" class="nav-link">Add Category</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'logout'%}" class="nav-link">Logout</a>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a href="{% url 'register'%}" class="nav-link">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'login'%}" class="nav-link">Login</a>
-                    </li>
-                {% endif %}
-                      
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="container mt-5">
-    {% block content %}
+                    <a class="link-secondary mx-1 text-decoration-none" href="{% url 'add-post'%}" class="nav-link">Add Post</a>
 
-    <!--
-        home
-        article_details
-    -->
-    {% endblock %}
+                    <a class="link-secondary mx-1 text-decoration-none" href="{% url 'add-category'%}" class="nav-link">Add Category</a>
+
+                    <a class="link-secondary mx-1 text-decoration-none" href="{% url 'logout'%}" class="nav-link">Logout</a>
+                {% else %}
+                    <a class="link-secondary mx-1 text-decoration-none" href="#">Subscribe</a>
+                {% endif %}
+            </div>
+            <div class="col-4 text-center">
+                <a class="blog-header-logo text-body-emphasis text-decoration-none" href="{% url 'home' %}">Blogie</a>
+            </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <a class="link-secondary" href="#" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
+                    </a>
+                    {% if not user.is_authenticated%}
+                            <a class="btn btn-sm btn-outline-secondary mx-1" href="{% url 'login'%}">Login</a>
+                            <a class="btn btn-sm btn-outline-secondary mx-1" href="{% url 'register'%}" class="nav-link">Register</a>
+                    {% endif %}
+                </div>
+            </div>
+        </header>  
+        <div class="nav-scroller py-1 mb-3 border-bottom">
+            <nav class="nav nav-underline justify-content-between">
+                {% block category_menu %}
+                    {% for item in category_menu_list %}
+                        <a class="nav-item nav-link link-body-emphasis active" href="{% url 'category' item|slugify  %}">{{ item|title }}</a>
+                    {% endfor %}
+                {% endblock %}
+            </nav>
+        </div>  
+    </div>
+    <div class="container mt-5">
+        
+        {% block content %}
+        <!--
+            home
+            article_details
+        -->
+        {% endblock %}
     </div>
     <!-- Bootstrap cdn-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
