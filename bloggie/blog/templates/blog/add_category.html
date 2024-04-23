@@ -5,13 +5,14 @@
 {% endblock %}
 
 {% block content%}
-
-<h1>Add Category</h1>
-<div class="form-group">
-    <form method="POST" class="mt-5">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-dark border">Add Category</button>
+<div class="container mt-5">
+    <h1>Add Category</h1>
+    <div class="form-group">
+        <form method="POST" class="mt-5">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-dark border">Add Category</button>
+    </div>
+    <a class="btn btn-dark mt-3" href = {% url 'home' %}>Back</a>
 </div>
-<a class="btn btn-dark mt-3" href = {% url 'home' %}>Back</a>
 {% endblock %}

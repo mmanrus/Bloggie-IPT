@@ -2,7 +2,9 @@
 
 
 {% block content %}
+<div class="container mt-5">
     {% for item in category_menu_list %}
         <h2><a class="nav-item nav-link link-body-emphasis active" href="{% url 'category' item|slugify|title  %}">{{ item }}</a><h2>
     {% endfor %}
+</div>
 {% endblock %}

@@ -5,40 +5,47 @@
 {% endblock %}
 
 {% block content %}
-    <h1>{{ post.title }}</h1>
-    <a href="{% url 'category' post.category %}"><h3>{{ post.category }}</h3></a>
+<div class="container mt-5">
+        <h1>{{ post.title }}</h1>
+        <a href="{% url 'category' post.category %}"><h3>{{ post.category }}</h3></a>
 
-    <p>
-        <small>By: 
-            <strong>
-                {% if user.first_name or user.last_name %}
-                    {{ user.first_name }} {{ user.last_name}}
-                {% else %}
-                    {{ user.username }}
-                {% endif%}
-            </strong>
-        </small> 
-        {{ post.date_posted }}
-    <p>
-    <hr>
-    <p>{{ post.body|safe }}</p>
-    </br>
-    <hr>
-    <a class="btn btn-dark" href = {% url 'home' %}>Back</a>
-{% if user.is_authenticated and user.id == post.author.id %}
-    <a class="btn btn-light" href = {% url 'update-post' post.pk%}>Edit</a> 
-    <form action = "{% url 'like_post' post.pk %}" method="POST">
-        {% csrf_token %}
-
-        {% if liked %}
-            <button type="submit", name="post_id" value="{{post.id}}" class="btn btn-secondary">Unlike</button>
-        {% else %}
-            <button type="submit", name="post_id" value="{{post.id}}" class="btn btn-primary">Like</button>
+        <p>
+            <small>By: 
+                <strong>
+                    {% if user.first_name or user.last_name %}
+                        {{ user.first_name }} {{ user.last_name}}
+                    {% else %}
+                        {{ user.username }}
+                    {% endif%}
+                </strong>
+            </small> 
+            {{ post.date_posted }}
+        <p>
+        <hr>
+        {% if post.header_image %}
+        <img src="{{post.header_image.url }}" alt="image">
         {% endif %}
-    </form>
-{% else %}
-    <a href="{% url 'login'%}" class="btn btn-primary">Login to like</a>
-{% endif %}
-    <p>{{ total_likes }} - Likes</p>
+        <p>{{ post.body|safe }}</p>
+        </br>
+        <hr>
+        
+        <a class="btn btn-dark" href = {% url 'home' %}>Back</a>
+    {% if user.is_authenticated %}
+        {% if user.id == post.author.id %}
+        <a class="btn btn-light" href = {% url 'update-post' post.pk%}>Edit</a> 
+        {% endif %}
+        <form action = "{% url 'like_post' post.pk %}" method="POST">
+            {% csrf_token %}
 
+            {% if liked %}
+                <button type="submit", name="post_id" value="{{post.id}}" class="btn btn-secondary">Unlike</button>
+            {% else %}
+                <button type="submit", name="post_id" value="{{post.id}}" class="btn btn-primary">Like</button>
+            {% endif %}
+        </form>
+    {% else %}
+        <a href="{% url 'login'%}" class="btn btn-primary">Login to like</a>
+    {% endif %}
+        <p>{{ total_likes }} - Likes</p>
+</div>
 {% endblock %}
