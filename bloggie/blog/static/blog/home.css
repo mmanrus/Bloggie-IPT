@@ -1,0 +1,339 @@
+:root {
+    --font-heading: Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --chakra-colors-gray-200: #E2E8F0;
+    --chakra-colors-white: #FFFFFF;
+    --chakra-sizes-10: 2.5rem;
+    --chakra-transition-duration-normal: 200ms;
+    --chakra-transition-property-common: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+    --chakra-fontSizes-md: 1rem;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --chakra-space-4: 1rem;
+    --colors-primary: rgb(28, 127, 242);;
+    --colors-primary-bg: #2a588d;
+}
+html {
+    line-height: 1.25;
+    font-size: 16px;
+}
+.banner {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.b-child1 {
+    flex-grow: 1;
+    overflow: hidden;
+    color: rgb(255, 255, 255);
+    background-color: rgb(28, 127, 242);
+}
+
+.b-grandchild1 {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 100%;
+    max-height: 355px;
+    padding: 40px;
+}
+
+.txt-container {
+    display: grid;
+    -webkit-box-pack: center;
+    justify-content: center;
+    max-height: 354.94px;
+    max-width: 700px;
+    margin: 0px auto;
+    border-radius: 0.25rem;
+    background-color: transparent;
+}
+/* h1 */
+.iIHzBj {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.iIHzBj h1 {
+    margin: 0px 0px 0.75rem;
+}
+
+.iIHzBj h1, .iIHzBj p {
+    font-family: var(--font-heading);
+}
+
+.knpxgB {
+
+    font-weight: 900;
+    line-height: 2.75rem;
+}
+
+.buWMYT {
+    margin-bottom: 1.75rem;
+    line-height: 1.15;
+    color: rgb(255, 255, 255);
+    font-size: 2.25rem;
+}
+/* h1 end */
+
+/* p */
+.iIHzBj p {
+    margin-bottom: 1.25rem;
+}
+.kBgwiz {
+    color: rgb(255, 255, 255);
+
+}
+
+
+p {
+    font-weight: var(--font-weight-regular);
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+/* end p*/
+
+/* Form */
+.iIHzBj form {
+    margin-top: 1rem;
+    width: 85%;
+    unicode-bidi: isolate;
+}
+
+.juSsIh {
+    min-height: 48px;
+}
+.kQbVNN {
+    display: flex;
+}
+.huYVK {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    overflow: hidden;
+    color: rgb(255, 255, 255);
+    background-color: rgb(28, 127, 242);
+}
+/* */
+
+/* email input form*/
+.juSsIh input {
+    border-radius: 0.125rem;
+    min-width: 100px;
+}
+
+textarea, input[type="text"], input[type="email"] {
+    appearance: none;
+}
+
+.dNKbfN {
+    border-radius: 0.25rem 0px 0px 0.25rem;
+    transition: all 200ms ease-in-out 0s;
+    padding: 0.5rem 1rem;
+    font-size: 16px;
+    flex: 1 1 55%;
+    border: none;
+}
+
+button, input {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0px;
+}
+input[type="email" i] {
+    padding-block: 1px;
+    padding-inline: 2px;
+}
+
+/* end input  */
+
+/* button  */
+.huYVK form .chakra-button {
+    background-color: rgb(5, 26, 49);
+    color: rgb(255, 255, 255);
+}
+
+.iIHzBj form button {
+    font-weight: 600;
+    border-radius: 0.25rem;
+}
+    /* display: -webkit-inline-box; */
+    /* display: -webkit-inline-flex; */
+.css-u5fi7s {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: middle;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    width: auto;
+    line-height: 1.2;
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-normal);
+    min-width: var(--chakra-sizes-10);
+    font-size: var(--chakra-fontSizes-md);
+    -webkit-padding-start: var(--chakra-space-4);
+    padding-inline-start: var(--chakra-space-4);
+    padding-inline-end: var(--chakra-space-4);
+    background: var(--colors-primary-bg);
+    color: var(--chakra-colors-white);
+}
+/* end button */
+
+/* 2nd banner */
+.css-1qwj5yi {
+    max-width: 470px;
+}
+.css-1j8oszi {
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-fast);
+    transition-timing-function: var(--chakra-transition-easing-ease-out);
+    cursor: pointer;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    color: inherit;
+    display: block;
+    padding: 20px;
+}
+
+eiCAYT > span {
+    width: 100%;
+    min-width: 100%;
+    min-height: 170px;
+    max-height: 170px;
+    aspect-ratio: 16 / 9;
+    border-radius: 0.25rem;
+}
+.iERVoj {
+    font-family: var(--font-heading);
+    color: var(--colors-primary);
+    margin-bottom: 0.313rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+.faRnrv {
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: var(--font-weight-medium);
+}
+
+@media screen and (min-width: 900px) {
+
+    .cSAGwA {
+        font-size: 1.125rem;
+    }
+}
+
+.cSAGwA {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    margin-bottom: 0.313rem;
+}
+
+.hXVBbm {
+    font-size: 1rem;
+    font-weight: var(--font-weight-medium);
+}
+@media screen and (min-width: 900px) {
+
+    .enGwAp {
+        font-size: 0.875rem;
+    }
+}
+
+.enGwAp {
+    font-family: var(--font-heading);
+    margin-bottom: 0.625rem;
+    font-size: 0.75rem;
+}
+
+.faTuAv {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-weight: var(--font-weight-regular);
+}
+
+p {
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-regular);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+/* end 2nd banner */
+h1, h2, h3, h4, h5, h6, p {
+    letter-spacing: 0px;
+    margin-top: 0px;
+}
+
+a {
+    background-color: transparent;
+    text-decoration: none;
+    color: inherit;
+}
+element.style {
+    box-sizing: border-box;
+    display: block;
+    overflow: hidden;
+    width: initial;
+    height: initial;
+    background: none;
+    opacity: 1;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+*, ::before, ::after {
+    border-width: 0px;
+    border-style: solid;
+    box-sizing: border-box;
+}
+
+*, *::before, ::after {
+    border-color: var(--chakra-colors-gray-200);
+    word-wrap: break-word;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
