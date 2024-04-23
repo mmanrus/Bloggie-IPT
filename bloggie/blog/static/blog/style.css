@@ -14,9 +14,13 @@ user-select: none;
 }
 
 @media (min-width: 768px) {
-.bd-placeholder-img-lg {
-    font-size: 3.5rem;
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
 }
+footer h3 a {
+    color: #535050;
+    text-decoration: none;
 }
 
 .b-example-divider {

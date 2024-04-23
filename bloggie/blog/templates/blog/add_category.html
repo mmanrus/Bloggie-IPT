@@ -11,7 +11,7 @@
     <form method="POST" class="mt-5">
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="btn btn-bg-secondary">Add Category</button>
+        <button class="btn btn-dark border">Add Category</button>
 </div>
 <a class="btn btn-dark mt-3" href = {% url 'home' %}>Back</a>
 {% endblock %}
