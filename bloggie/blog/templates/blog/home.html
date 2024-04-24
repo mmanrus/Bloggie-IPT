@@ -30,22 +30,24 @@
         {% if object_list %}
             {% with latest_post=object_list.first %}
             <div class="css-1qwj5yi">
-                <a class="chakra-link css-1j8oszi" href="https://www.morningbrew.com/daily/stories/2024/04/21/the-tiktok-ban-just-got-very-real">
-                    <div class="style__SpotlightImage-sc-11272830-1 eiCAYT css-0">
-                        <span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative">
-                            <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;padding-top:52.142857142857146%">
+                <a class="chakra-link css-1j8oszi" href="{% url 'article-detail' latest_post.pk %}">
+                    {% if latest_post.header_image %}
+                        <div class="style__SpotlightImage-sc-11272830-1 eiCAYT css-0">
+                            <span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative">
+                                <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;padding-top:52.142857142857146%">
+                                </span>
+                                <img alt="Post image" src="{{ latest_post.header_image.url }}?rect=0,107,1500,786&amp;w=420&amp;h=220&amp;q=80&amp;fit=crop&amp;auto=format" decoding="async" data-nimg="responsive" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover">
                             </span>
-                            <img alt="A person’s hand placing the top of the US capital building on top of a candle with the TikTok logo on the side" src="https://cdn.sanity.io/images/bl383u0v/production/78db2fb1c36526f87c67f9c928f7010214c59b28-1500x1000.jpg?rect=0,107,1500,786&amp;w=420&amp;h=220&amp;q=80&amp;fit=crop&amp;auto=format" decoding="async" data-nimg="responsive" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover">
-                        </span>
-                    </div>
+                        </div>
+                    {% endif %}
                     <p class="dist__StyledText-sc-2252f3c6-12 faRnrv style__SpotlightTagLine-sc-11272830-2 iERVoj fs-3" font-weight="medium">
-                        Tech
+                        {{ latest_post.category|title }}
                     </p>
                     <p class="dist__StyledText-sc-2252f3c6-12 hXVBbm style__SpotlightTitle-sc-11272830-3 cSAGwA fs-3" font-weight="medium">
-                        The TikTok ‘ban’ just got very real
+                        {{ latest_post.title|title }}
                     </p>
                     <p class="dist__StyledText-sc-2252f3c6-12 faTuAv style__SpotlightDetails-sc-11272830-4 enGwAp fs-6" font-weight="regular">
-                        The bill is expected to get through the Senate as soon as this week, and will almost certainly be signed into law by President Biden.
+                        {{ latest_post.title_tag }}
                     </p><div class="style__SpotlightSponsor-sc-11272830-5 cBQIlA"><p class="dist__StyledText-sc-2252f3c6-12 iJerFn" font-weight="bold">
                     </p>
                 </div></a>
@@ -53,28 +55,37 @@
             {% endwith %}
         {% endif %}
     </div>
-
 </div>
+
 <div class="container">
-<h1 class="my-5">Latest Stories</h1>
+    <h1 class="my-5">Latest Stories</h1>
+    <hr>
     {% for post in object_list %}
 
-            <a href="{% url 'article-detail' post.pk %}"><h1>{{ post.title }}</h1></a>
-            <a href="{% url 'category' post.category|slugify  %}"><h3>{{ post.category|title }}</h3></a>
+            <a href="{% url 'article-detail' post.pk %}" style="color:#343a40; text-decoration:none;"><h1>{{ post.title }}</h1></a>
+            <a href="{% url 'category' post.category|slugify  %}" style="color:#343a40; text-decoration:none;"><h3>{{ post.category|title }}</h3></a>
             <p>By {{ post.author }}</p>
             <p>{{ post.date_posted|date:"F j, Y, g:i a" }}</p>
             <b><a href="{% url 'article-detail' post.pk %}">{{ post.snippet }}</a></b>
             <p>{{ post.body|slice:":200"|safe }}</p>
-            <p>
-                {% if post.total_likes == None %}
-                0 - Likes
-                {% else %}
-                {{ post.total_likes }} - Likes
-                {% endif %}
-            </p>
+ 
+                <p>
+                    <b>{{ post.total_likes }}</b> - Likes
+                </p>    
+
 
             <hr>
 
     {% endfor %}
+    <footer class="py-5 text-center text-body-secondary bg-body-tertiary footer-container">
+        <div class="wrapper">
+            <div id="content">
+                <h3>Bloggie for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</h3>
+                <p class="mb-0">
+                    <a href="#">Back to top</a>
+                </p>
+            </div>
+        </div>
+    </footer>
 </div>
 {% endblock %}
