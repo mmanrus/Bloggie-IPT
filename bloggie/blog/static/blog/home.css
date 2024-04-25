@@ -11,8 +11,14 @@
     --font-weight-medium: 500;
     --chakra-space-4: 1rem;
     --colors-primary: rgb(28, 127, 242);;
+    --colors-black: #000;
     --colors-primary-bg: #2a588d;
 }
+#links {
+    color: --colors-black;
+    text-decoration: none;
+}
+
 html {
     line-height: 1.25;
     font-size: 16px;

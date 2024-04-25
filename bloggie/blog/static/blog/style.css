@@ -1,6 +1,10 @@
- 
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+} 
 .container.mt-5 a {
-    color: #535050;
+    color: #646262;
     text-decoration: none;
 }
 
@@ -18,7 +22,8 @@ user-select: none;
         font-size: 3.5rem;
     }
 }
-footer h3 a {
+
+footer .wrapper #content h3 a {
     color: #535050;
     text-decoration: none;
 }
@@ -84,4 +89,22 @@ z-index: 1500;
 
 .bd-mode-toggle .dropdown-menu .active .bi {
 display: block !important;
+}
+
+/* CSS FOOTER FROM STACK OVERFLOW*/
+
+.wrapper {
+    min-height: 100%;
+    position:relative;
+}
+
+#content {
+    padding-bottom: 75px;   /* This value is the height of your footer */
+}
+
+.footer-container {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 75px;  /* This value is the height of your footer */
 }

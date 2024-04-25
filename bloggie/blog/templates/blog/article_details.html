@@ -7,7 +7,7 @@
 {% block content %}
 <div class="container mt-5">
         <h1>{{ post.title }}</h1>
-        <a href="{% url 'category' post.category %}"><h3>{{ post.category }}</h3></a>
+        <a href="{% url 'category' post.category %}"><h3>{{ post.category|upper }}</h3></a>
 
         <p>
             <small>By: 
@@ -48,4 +48,14 @@
     {% endif %}
         <p>{{ total_likes }} - Likes</p>
 </div>
+<footer class="py-5 text-center text-body-secondary bg-body-tertiary footer-container">
+    <div class="wrapper">
+        <div id="content">
+            <h3>Bloggie for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</h3>
+            <p class="mb-0">
+                <a href="#">Back to top</a>
+            </p>
+        </div>
+    </div>
+</footer>
 {% endblock %}
