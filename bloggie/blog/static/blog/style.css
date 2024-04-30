@@ -23,6 +23,11 @@ user-select: none;
     }
 }
 
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
 footer .wrapper #content h3 a {
     color: #535050;
     text-decoration: none;

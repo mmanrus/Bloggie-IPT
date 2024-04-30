@@ -61,31 +61,30 @@
     <h1 class="my-5">Latest Stories</h1>
     <hr>
     {% for post in object_list %}
-
-            <a href="{% url 'article-detail' post.pk %}" style="color:#343a40; text-decoration:none;"><h1>{{ post.title }}</h1></a>
-            <a href="{% url 'category' post.category|slugify  %}" style="color:#343a40; text-decoration:none;"><h3>{{ post.category|title }}</h3></a>
-            <p>By {{ post.author }}</p>
-            <p>{{ post.date_posted|date:"F j, Y, g:i a" }}</p>
-            <b><a href="{% url 'article-detail' post.pk %}">{{ post.snippet }}</a></b>
-            <p>{{ post.body|slice:":200"|safe }}</p>
+            
+            {% if post.header_image %}
+                <div>
+                    <img alt="News image" src="{{ post.header_image.url }}" class="w-25">
+                </div>
+            {% endif%}
+            <div>
+                <a href="{% url 'article-detail' post.pk %}" style="color:#343a40; text-decoration:none;"><h1>{{ post.title }}</h1></a>
+                <a href="{% url 'category' post.category|slugify  %}" style="color:#343a40; text-decoration:none;"><h3>{{ post.category|title }}</h3></a>
+                <p>By {{ post.author }}</p>
+                <p>{{ post.date_posted|date:"F j, Y, g:i a" }}</p>
+                <b><a href="{% url 'article-detail' post.pk %}">{{ post.snippet }}</a></b>
+                <p>{{ post.body|slice:":200"|safe }}</p>
+            </div>
  
                 <p>
                     <b>{{ post.total_likes }}</b> - Likes
                 </p>    
-
+          
 
             <hr>
 
     {% endfor %}
-    <footer class="py-5 text-center text-body-secondary bg-body-tertiary footer-container">
-        <div class="wrapper">
-            <div id="content">
-                <h3>Bloggie for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</h3>
-                <p class="mb-0">
-                    <a href="#">Back to top</a>
-                </p>
-            </div>
-        </div>
-    </footer>
+
 </div>
+
 {% endblock %}
