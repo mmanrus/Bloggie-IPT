@@ -60,31 +60,29 @@
 <div class="container">
     <h1 class="my-5">Latest Stories</h1>
     <hr>
-    {% for post in object_list %}
-            
+    <div class="posts-container">
+        {% for post in object_list %}
+        <div class="row block mb-4">
             {% if post.header_image %}
-                <div>
-                    <img alt="News image" src="{{ post.header_image.url }}" class="w-25">
-                </div>
-            {% endif%}
-            <div>
-                <a href="{% url 'article-detail' post.pk %}" style="color:#343a40; text-decoration:none;"><h1>{{ post.title }}</h1></a>
-                <a href="{% url 'category' post.category|slugify  %}" style="color:#343a40; text-decoration:none;"><h3>{{ post.category|title }}</h3></a>
+            <div class="col-md-4">
+                <a href="{% url 'article-detail' post.pk %}"><img alt="News image" src="{{ post.header_image.url }}" class="img-fluid"></a>
+            </div>
+            {% endif %}
+            <div class="{% if post.header_image %} col-md-8 {% else %} col-md-12 {% endif %}">
+                <a href="{% url 'article-detail' post.pk %}" style="color:#343a40; text-decoration:none;"><h2>{{ post.title }}</h2></a>
+                <a href="{% url 'category' post.category|slugify  %}" style="color:#343a40; text-decoration:none;"><h4>{{ post.category|title }}</h4></a>
                 <p>By {{ post.author }}</p>
                 <p>{{ post.date_posted|date:"F j, Y, g:i a" }}</p>
                 <b><a href="{% url 'article-detail' post.pk %}">{{ post.snippet }}</a></b>
                 <p>{{ post.body|slice:":200"|safe }}</p>
+                <p><b>{{ post.total_likes }}</b> - Likes</p>
             </div>
- 
-                <p>
-                    <b>{{ post.total_likes }}</b> - Likes
-                </p>    
-          
+        </div>
+        <hr>
 
-            <hr>
-
-    {% endfor %}
-
+        {% endfor %}
+    </div>
 </div>
+
 
 {% endblock %}

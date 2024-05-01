@@ -23,9 +23,9 @@
         <p>
         <hr>
         {% if post.header_image %}
-            <img src="{{post.header_image.url }}" alt="post-image">
+            <img src="{{post.header_image.url }}" alt="post-image" class="w-100">
         {% endif %}
-        <p>{{ post.body|safe }}</p>
+        <p>{{ post.body|safe}}</p>
         </br>
         <hr>
         
@@ -48,14 +48,4 @@
     {% endif %}
         <p>{{ total_likes }} - Likes</p>
 </div>
-<footer class="py-5 text-center text-body-secondary bg-body-tertiary footer-container">
-    <div class="wrapper">
-        <div id="content">
-            <h3>Bloggie for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</h3>
-            <p class="mb-0">
-                <a href="#">Back to top</a>
-            </p>
-        </div>
-    </div>
-</footer>
 {% endblock %}

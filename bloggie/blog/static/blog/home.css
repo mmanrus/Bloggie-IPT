@@ -343,3 +343,30 @@ h1 {
     font-weight: bold;
     unicode-bidi: isolate;
 }
+
+
+
+/* SECTION: loop flex box */
+
+.posts-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.post {
+    margin-bottom: 20px;
+    display: block;
+    flex-wrap: nowrap;
+}
+
+.text-container {
+    flex: 1;
+}
+
+.posts-container .block:not(:last-child)::after {
+    content: "";
+    display: block;
+    border-top: 1px solid #424040;
+    margin-top: 20px;
+    padding-top: 20px;
+}
