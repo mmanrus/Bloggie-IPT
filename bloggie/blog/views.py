@@ -20,13 +20,6 @@ class HomeView(ListView):
         
         cat_menu = Category.objects.all()
         context["cat_menu"] = cat_menu
-        """
-        stuff = get_object_or_404(Post, id="self".kwargs['pk'])
-        total_likes = stuff.total_likes()
-        
-        context["total_likes"] = total_likes
-        return context
-        """
         pk = self.kwargs.get('pk')  # Corrected the retrieval of pk
         
         total_likes = 0

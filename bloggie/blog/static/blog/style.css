@@ -113,3 +113,14 @@ display: block !important;
     bottom: 0;
     height: 75px;  /* This value is the height of your footer */
 }
+
+.container-smx {
+    width: 50%!important;
+    margin-left: auto!important;
+    margin-right: auto!important;
+}
+.container-smx p {
+    line-height: 200%;
+    font-size: 1.25rem;
+    font-family:  "Times New Roman", serif;
+}
